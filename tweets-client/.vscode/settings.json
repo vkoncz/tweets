@@ -1,0 +1,18 @@
+{
+    "files.eol": "\n",
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "eslint.format.enable": true,
+    "eslint.codeActionsOnSave.mode": "all",
+    "eslint.validate": [
+        "typescript",
+        "typescriptreact"
+    ],
+    // override user specific formaters
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    }
+}
