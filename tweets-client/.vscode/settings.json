@@ -14,5 +14,9 @@
     },
     "[typescript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#61dafb",
+        "titleBar.activeForeground": "#000"
     }
 }
