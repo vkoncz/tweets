@@ -1,5 +1,13 @@
-const message = "It's working";
+import express from 'express';
+import { serverPort } from './params';
+import tweetsRouter from './tweets/tweets.router';
 
-export const getMessage = (): string => message;
+const app = express();
 
-console.log(message);
+app.use(tweetsRouter);
+
+app.listen(serverPort, () => {
+  console.log(`Tweets server started at port ${serverPort}`);
+});
+
+export default app;
