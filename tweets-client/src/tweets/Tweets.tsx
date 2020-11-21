@@ -6,6 +6,9 @@ import { TweetsContainer } from './Tweets.styles';
 const Tweets: React.FC = () => {
   const { tweets, isError, isLoading } = useTweetFetch();
 
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error occurred, please try it later</p>;
+
   return (
     <TweetsContainer>
       {tweets.map(tweet => (
