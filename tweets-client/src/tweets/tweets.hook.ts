@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { Tweet } from './tweets.model';
+import { TweetModel } from './tweet.model';
 
-export function getTweets(): Promise<Tweet[]> {
+export function getTweets(): Promise<TweetModel[]> {
   return axios.get('/tweets').then(res => res.data);
 }
 
 export const useTweetFetch = () => {
-  const [tweets, setTweets] = useState<Tweet[]>([]);
+  const [tweets, setTweets] = useState<TweetModel[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 

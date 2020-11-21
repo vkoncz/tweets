@@ -7,15 +7,15 @@ export async function getTweets(): Promise<Tweet[]> {
         id: '1',
         content: 'csirip',
         date: new Date(),
-        userId: '12',
+        userId: '@viktor',
         userName: 'Viktor',
       },
       {
         id: '2',
         content: 'csirip',
         date: new Date(),
-        userId: '13',
-        userName: 'Viktor2',
+        userId: '@ben',
+        userName: 'Ben',
       },
     ]);
   });

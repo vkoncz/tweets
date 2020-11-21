@@ -1,4 +1,4 @@
-export interface Tweet {
+export interface TweetModel {
   id: string;
   date: Date;
   userId: string;
