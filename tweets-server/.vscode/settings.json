@@ -13,5 +13,6 @@
   },
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#026e00"
-  }
+  },
+  "jest.autoEnable": true
 }

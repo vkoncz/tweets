@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tweet snapshot 1`] = `
+<div>
+  <article
+    class="sc-bdfBwQ iWRkbk"
+  >
+    <p
+      class="sc-gsTCUz crUlbz"
+    >
+      <span
+        class="sc-dlfnbm fXvGP"
+      >
+        test-user-name
+      </span>
+       
+      <span
+        class="sc-hKgILt dQuplh"
+      >
+        test-user-id
+      </span>
+      <span
+        class="sc-hKgILt sc-eCssSg dQuplh"
+      >
+         · 
+        a year ago
+      </span>
+    </p>
+    <p
+      class="sc-jSgupP imfxUq"
+    >
+      test-content
+    </p>
+  </article>
+</div>
+`;
