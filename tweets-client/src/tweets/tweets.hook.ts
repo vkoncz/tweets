@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { TweetModel } from './tweet.model';
 
-export function getTweets(): Promise<TweetModel[]> {
+function getTweets(): Promise<TweetModel[]> {
   return axios.get('/tweets').then(res => res.data);
 }
 
