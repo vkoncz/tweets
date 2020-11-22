@@ -3,7 +3,7 @@ export const mongoConnection = validate('MONGO_CONNECTION');
 
 function validate(env: string) {
   const param = process.env[env];
-  if (!param) throw Error(`Missing environment variable:${env}`);
+  if (!param) throw Error(`Missing environment variable: ${env}`);
 
   return param;
 }

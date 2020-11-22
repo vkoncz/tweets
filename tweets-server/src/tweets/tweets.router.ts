@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import moment from 'moment';
-import { TweetDto } from './tweets.model';
+import { Tweet } from './tweets.model';
 import { addTweet, getTweets } from './tweets.service';
 
 const tweetsRouter = Router();
@@ -19,7 +18,7 @@ tweetsRouter.get('/tweets', async (req, res) => {
 tweetsRouter.post('/tweets', async (req, res) => {
   const { body } = req;
 
-  if (!validateTweets(body)) return res.status(400).send('Invalid or missing parameter');
+  if (!validateTweet(body)) return res.status(400).send('Invalid or missing parameter');
 
   try {
     const result = await addTweet(body);
@@ -29,11 +28,10 @@ tweetsRouter.post('/tweets', async (req, res) => {
   }
 });
 
-function validateTweets(body: TweetDto): body is TweetDto {
+function validateTweet(body: Tweet): body is Tweet {
   return (
     body &&
     typeof body.content === 'string' &&
-    typeof moment(body.date).isValid() &&
     typeof body.userId === 'string' &&
     typeof body.userName === 'string'
   );

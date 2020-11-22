@@ -2,12 +2,8 @@ import { ObjectId } from 'mongodb';
 
 export interface Tweet {
   _id?: ObjectId;
-  date: string;
-  userId: string;
+  date?: Date;
   userName: string;
+  userId: string;
   content: string;
 }
-
-export type TweetDto = Omit<Tweet, '_id'> & {
-  id?: string;
-};
