@@ -5,6 +5,8 @@ import tweetsRouter from './tweets/tweets.router';
 
 const app = express();
 
+app.use(express.json());
+
 (async () => {
   await connectToMongodb();
 
