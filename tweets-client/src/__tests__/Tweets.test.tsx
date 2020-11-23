@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
-import Tweets from '../Tweets';
+import Tweets from '../components/Tweets';
 import axios from 'axios';
 
-jest.mock('../Tweet', () => () => <p>tweet mock</p>);
+jest.mock('../components/Tweet', () => () => <p>tweet mock</p>);
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

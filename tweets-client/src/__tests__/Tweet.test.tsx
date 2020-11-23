@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Tweet from '../Tweet';
-import { TweetModel } from '../tweet.model';
-
+import { TweetModel } from '../models/tweet.model';
+import Tweet from '../components/Tweet';
 export const tweetMock: TweetModel = {
   _id: 'test-id',
   content: 'test-content',

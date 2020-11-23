@@ -1,17 +1,13 @@
 import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { TweetModel, TweetPost } from './tweet.model';
+import { TweetModel } from '../models/tweet.model';
 
-export function getTweets(): Promise<TweetModel[]> {
+function getTweets(): Promise<TweetModel[]> {
   return axios.get('/tweets').then(res => res.data);
 }
 
-export async function postTweet(tweet: TweetPost): Promise<TweetModel> {
-  return axios.post('/tweets', tweet).then(res => res.data);
-}
-
-export const useHttpCall = <P, F>(call: (parameter?: P) => Promise<F>) => {
-  const [tweets, setTweets] = useState<F>();
+export const useFetchTweets = () => {
+  const [tweets, setTweets] = useState<TweetModel[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,7 +16,7 @@ export const useHttpCall = <P, F>(call: (parameter?: P) => Promise<F>) => {
     setIsError(false);
 
     try {
-      const result = await call();
+      const result = await getTweets();
       setTweets(result);
     } catch (error) {
       setIsError(true);
@@ -28,11 +24,15 @@ export const useHttpCall = <P, F>(call: (parameter?: P) => Promise<F>) => {
     }
 
     setIsLoading(false);
-  }, [call]);
+  }, []);
+
+  const addNewTweet = useCallback((tweet: TweetModel) => {
+    setTweets(tweetList => [tweet, ...tweetList]);
+  }, []);
 
   useEffect(() => {
     fetchTweets();
   }, [fetchTweets]);
 
-  return { tweets, isError, isLoading };
+  return { tweets, isError, isLoading, addNewTweet };
 };

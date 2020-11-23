@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React from 'react';
-import { TweetModel } from './tweet.model';
+import { TweetModel } from '../models/tweet.model';
 import {
   TweetContainer,
   TweetContent,
