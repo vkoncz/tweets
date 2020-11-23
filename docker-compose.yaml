@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  tweets-client:
+    build:
+      context: ./tweets-client
+    ports:
+      - "8080:80"
+    depends_on:
+      - mongo-db
+      - tweets-server
+
+  tweets-server:
+    build:
+      context: ./tweets-server
+    environment:
+      MONGO_CONNECTION: mongodb://admin:tweetspwd@mongo-db:27017
+      SERVER_PORT: 80
+
+  mongo-db:
+    image: mongo
+    volumes:
+      - ./mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: tweetspwd
+
+volumes:
+  mongo-data:
