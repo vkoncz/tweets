@@ -1,12 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Tweet from '../Tweet';
-import { TweetModel } from '../tweet.model';
-
+import { TweetModel } from '../models/tweet.model';
+import Tweet from '../components/Tweet';
 export const tweetMock: TweetModel = {
-  id: 'test-id',
+  _id: 'test-id',
   content: 'test-content',
-  date: new Date(2020, 0, 1),
+  date: '2019-12-31T23:00:00.000Z',
   userId: 'test-user-id',
   userName: 'test-user-name',
 };

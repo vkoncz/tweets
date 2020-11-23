@@ -1,7 +1,9 @@
+import { ObjectId } from 'mongodb';
+
 export interface Tweet {
-  id: string;
-  date: Date;
-  userId: string;
+  _id?: ObjectId;
+  date?: Date;
   userName: string;
+  userId: string;
   content: string;
 }

@@ -15,7 +15,10 @@
       ],
       "args": [
         "${workspaceFolder}/src/app.ts"
-      ]
+      ],
+      "env": {
+        "MONGO_CONNECTION": "mongodb://admin:tweetspwd@localhost:27017"
+      }
     }
   ]
 }

@@ -1,22 +1,13 @@
+import { tweetsCollection } from '../database/mongo-connection';
 import { Tweet } from './tweets.model';
 
-export async function getTweets(): Promise<Tweet[]> {
-  return await new Promise(resolve => {
-    resolve([
-      {
-        id: '1',
-        content: 'csirip',
-        date: new Date(),
-        userId: '@viktor',
-        userName: 'Viktor',
-      },
-      {
-        id: '2',
-        content: 'csirip',
-        date: new Date(),
-        userId: '@ben',
-        userName: 'Ben',
-      },
-    ]);
-  });
+export function getTweets(): Promise<Tweet[]> {
+  return tweetsCollection.find().sort({ date: -1 }).toArray();
+}
+
+export async function addTweet(tweet: Tweet): Promise<Tweet> {
+  tweet.date = new Date();
+  const response = await tweetsCollection.insertOne(tweet);
+
+  return response.ops[0];
 }
