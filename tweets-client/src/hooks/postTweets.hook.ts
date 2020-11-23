@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { TweetModel, TweetPost } from '../models/tweet.model';
 
 async function postTweet(tweet: TweetPost): Promise<TweetModel> {
-  return axios.post('/tweets', tweet).then(res => res.data);
+  return axios.post('/tweets/', tweet).then(res => res.data);
 }
 
 export const usePostTweets = (tweet: TweetPost) => {

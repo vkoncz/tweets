@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { TweetModel } from '../models/tweet.model';
 
 function getTweets(): Promise<TweetModel[]> {
-  return axios.get('/tweets').then(res => res.data);
+  return axios.get('/tweets/').then(res => res.data);
 }
 
 export const useFetchTweets = () => {
